@@ -1,0 +1,112 @@
+/* Trade Clean Template CSS */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
+/* Base styles */
+body {
+  font-family: 'Lora', serif;
+  font-size: 10.5pt;
+  line-height: 1.5;
+  color: #374151;
+  text-align: left;
+}
+
+/* Title page styles */
+.title-page {
+  text-align: center;
+  padding: 3rem 0;
+  page-break-after: always;
+}
+
+.book-title {
+  font-family: 'Lora', serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin: 3rem 0 1.5rem;
+  text-align: center;
+  color: #111827;
+}
+
+.author {
+  font-family: 'Lora', serif;
+  font-size: 1.1rem;
+  text-align: center;
+  color: #6b7280;
+  margin: 1.5rem 0;
+}
+
+/* Chapter styles */
+.chapter-title {
+  font-family: 'Lora', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 2.5rem 0 1.5rem;
+  color: #111827;
+  page-break-before: always;
+}
+
+.section-title {
+  font-family: 'Lora', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 1.5rem 0 1rem;
+  color: #374151;
+}
+
+/* Paragraph styles */
+p {
+  margin: 0 0 1rem 0;
+  text-indent: 0;
+}
+
+.first-paragraph {
+  margin-top: 0;
+}
+
+/* Quote styles */
+.quote, blockquote {
+  font-style: italic;
+  margin: 1.5rem 0;
+  padding: 1rem 1.5rem;
+  background-color: #f9fafb;
+  border-left: 4px solid #d1d5db;
+  color: #4b5563;
+}
+
+/* List styles */
+ul, ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+li {
+  margin: 0.75rem 0;
+}
+
+ul.chapter-list {
+  list-style-type: disc;
+}
+
+/* Page break styles */
+.page-break {
+  page-break-before: always;
+}
+
+/* Print-specific styles */
+@media print {
+  @page {
+    size: 5.5in 8.5in;
+    margin: 1in 0.75in 1in 1in;
+  }
+  
+  body {
+    font-size: 10.5pt;
+  }
+  
+  .page-break::before {
+    display: none;
+  }
+  
+  .quote, blockquote {
+    background-color: transparent;
+  }
+} 

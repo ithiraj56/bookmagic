@@ -1,0 +1,28 @@
+{
+  "name": "bookmagic-converter",
+  "version": "1.0.0",
+  "description": "Document conversion worker for BookMagic",
+  "main": "worker.js",
+  "scripts": {
+    "start": "node worker.js",
+    "dev": "nodemon worker.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "playwright": "^1.40.0",
+    "archiver": "^6.0.1",
+    "fs-extra": "^11.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "keywords": [
+    "document-conversion",
+    "epub",
+    "pdf",
+    "pandoc",
+    "playwright"
+  ],
+  "author": "BookMagic Team",
+  "license": "MIT"
+} 
