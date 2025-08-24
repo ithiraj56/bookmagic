@@ -1,118 +1,183 @@
-/* Novella A5 Template CSS */
-@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+/* Novella A5 Template - Compact Elegant Formatting */
 
-/* Base styles */
-body {
-  font-family: 'Source Serif Pro', serif;
-  font-size: 10pt;
-  line-height: 1.3;
-  color: #1f2937;
+body { 
+  font-family: 'Book Antiqua', 'Palatino', serif; 
+  font-size: 9pt; 
+  line-height: 1.3; 
+  margin: 0; 
   text-align: justify;
-  max-width: 600px;
-  margin: 0 auto;
+  color: #1a1a1a;
+  background: white;
+  padding: 0;
 }
 
-/* Title page styles */
-.title-page {
+/* Chapter and section headings */
+h1 { 
+  font-size: 14pt; 
+  font-weight: bold; 
+  margin: 1.5em 0 1em 0; 
   text-align: center;
-  padding: 2.5rem 0;
-  page-break-after: always;
+  text-transform: capitalize;
+  letter-spacing: 0.02em;
 }
 
-.book-title {
-  font-family: 'Source Serif Pro', serif;
-  font-size: 2rem;
-  font-weight: 500;
-  margin: 2.5rem 0 1.5rem;
-  text-align: center;
-  color: #111827;
+h2 { 
+  font-size: 11pt; 
+  font-weight: bold; 
+  margin: 1em 0 0.5em 0; 
+  text-align: left;
 }
 
-.author {
-  font-family: 'Source Serif Pro', serif;
-  font-size: 1rem;
-  text-align: center;
-  color: #4b5563;
-  margin: 1.5rem 0;
-}
-
-/* Chapter styles */
-.chapter-title {
-  font-family: 'Source Serif Pro', serif;
-  font-size: 1.4rem;
-  font-weight: 500;
-  margin: 2rem 0 1rem;
-  color: #111827;
-  page-break-before: always;
-}
-
-.section-title {
-  font-family: 'Source Serif Pro', serif;
-  font-size: 1.1rem;
-  font-weight: 500;
-  margin: 1.5rem 0 0.5rem;
-  color: #374151;
-}
-
-/* Paragraph styles */
-p {
-  margin: 0 0 0.75rem 0;
-  text-indent: 1em;
-}
-
-.first-paragraph {
-  text-indent: 0;
-  margin-top: 0;
-}
-
-/* Quote styles */
-.quote, blockquote {
+h3 { 
+  font-size: 10pt; 
+  font-weight: bold; 
+  margin: 0.8em 0 0.3em 0; 
   font-style: italic;
-  margin: 1rem 1rem;
-  padding: 0.75rem;
-  border-left: 2px solid #9ca3af;
-  color: #4b5563;
-  font-size: 0.95em;
 }
 
-/* List styles */
-ul, ol {
-  margin: 0.75rem 0;
-  padding-left: 1.25rem;
+/* Paragraph formatting */
+p { 
+  margin: 0 0 0.3em 0; 
+  text-indent: 1em; 
+}
+
+/* First paragraphs after headings don't indent */
+p:first-child, 
+h1 + p, 
+h2 + p, 
+h3 + p,
+.first-paragraph { 
+  text-indent: 0; 
+}
+
+/* Block quotes */
+blockquote { 
+  margin: 0.8em 1.5em; 
+  font-style: italic; 
+  font-size: 0.95em;
+  text-indent: 0;
+  padding-left: 0.8em;
+  border-left: 2px solid #ccc;
+}
+
+/* Lists */
+ul, ol { 
+  margin: 0.8em 0; 
+  padding-left: 1.5em; 
+  font-size: 0.95em;
 }
 
 li {
-  margin: 0.5rem 0;
-  font-size: 0.95em;
+  margin: 0.2em 0;
+  text-indent: 0;
 }
 
-ul.chapter-list {
-  list-style-type: circle;
+/* Emphasis */
+strong {
+  font-weight: bold;
 }
 
-/* Page break styles */
+em {
+  font-style: italic;
+}
+
+/* Page breaks for print */
 .page-break {
   page-break-before: always;
 }
 
-/* Compact styling for A5 format */
-h1, h2, h3 {
-  line-height: 1.2;
+/* Scene breaks */
+hr {
+  border: none;
+  text-align: center;
+  margin: 1.5em 0;
+}
+
+hr:after {
+  content: "❦";
+  font-size: 12pt;
+  color: #666;
+}
+
+/* Compact spacing for novella format */
+.chapter {
+  margin: 1em 0;
+}
+
+/* Drop caps for chapter openings */
+.drop-cap:first-letter {
+  float: left;
+  font-size: 2.5em;
+  line-height: 0.8;
+  margin: 0.05em 0.08em 0 0;
+  font-weight: bold;
+  color: #333;
 }
 
 /* Print-specific styles */
 @media print {
-  @page {
-    size: A5;
-    margin: 0.75in 0.5in 0.75in 0.75in;
-  }
-  
   body {
-    font-size: 10pt;
-    max-width: none;
+    margin: 0;
+    padding: 0;
   }
   
-  .page-break::before {
-    display: none;
+  h1 {
+    page-break-before: always;
+    page-break-after: avoid;
   }
+  
+  h2, h3 {
+    page-break-after: avoid;
+  }
+  
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+  
+  .page-break {
+    page-break-before: always;
+  }
+}
+
+/* Dialogue formatting */
+.dialogue {
+  margin: 0.2em 0;
+}
+
+/* Compact table of contents */
+.toc {
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+.toc-entry {
+  margin: 0.3em 0;
+  text-indent: 0;
+}
+
+/* Page numbers and headers */
+.page-header {
+  font-size: 8pt;
+  text-align: center;
+  margin-bottom: 1em;
+  color: #666;
+}
+
+/* Footnotes */
+.footnote {
+  font-size: 8pt;
+  line-height: 1.2;
+  margin-top: 0.5em;
+  padding-top: 0.3em;
+  border-top: 1px solid #ddd;
+}
+
+/* Compact verse formatting */
+.verse {
+  font-style: italic;
+  margin: 1em 2em;
+  text-align: left;
+  text-indent: 0;
+  line-height: 1.2;
 } 

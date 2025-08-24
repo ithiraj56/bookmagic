@@ -3,7 +3,14 @@
 import { useState, useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
 import { DocumentTextIcon, CloudArrowUpIcon, XMarkIcon, CheckCircleIcon } from '@heroicons/react/24/outline'
-import { uploadFile, isValidFileType, formatFileSize } from '@/lib/mock-storage'
+import { uploadFile, formatFileSize, getFileExtension } from '@/lib/mock-storage'
+
+// Helper function to validate file type
+function isValidFileType(file: File): boolean {
+  const validTypes = ['docx', 'md', 'rtf']
+  const extension = getFileExtension(file.name)
+  return validTypes.includes(extension)
+}
 
 interface UploadFormProps {
   projectId: string

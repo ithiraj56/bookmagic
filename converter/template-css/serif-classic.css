@@ -1,116 +1,134 @@
-/* Serif Classic Template CSS */
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+/* Serif Classic Template - Professional Book Formatting */
 
-/* Base styles */
-body {
-  font-family: 'EB Garamond', serif;
-  font-size: 11pt;
-  line-height: 1.4;
-  color: #2d3748;
+body { 
+  font-family: 'Times New Roman', 'Times', serif; 
+  font-size: 11pt; 
+  line-height: 1.4; 
+  margin: 0; 
   text-align: justify;
-  hyphens: auto;
+  color: #333;
+  background: white;
+  padding: 0;
 }
 
-/* Title page styles */
-.title-page {
-  text-align: center;
-  padding: 4rem 0;
-  page-break-after: always;
-}
-
-.book-title {
-  font-family: 'EB Garamond', serif;
-  font-size: 2.5rem;
-  font-weight: 500;
-  margin: 4rem 0 2rem;
-  text-align: center;
-  color: #1a202c;
-}
-
-.author {
-  font-family: 'EB Garamond', serif;
-  font-size: 1.2rem;
-  font-style: italic;
-  text-align: center;
-  color: #4a5568;
-  margin: 2rem 0;
-}
-
-/* Chapter styles */
-.chapter-title {
-  font-family: 'EB Garamond', serif;
-  font-size: 1.8rem;
-  font-weight: 500;
-  margin: 3rem 0 2rem;
-  text-align: center;
-  color: #1a202c;
+/* Chapter and section headings */
+h1 { 
+  font-size: 18pt; 
+  font-weight: bold; 
+  text-align: center; 
+  margin: 2em 0 1em 0; 
   page-break-before: always;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.section-title {
-  font-family: 'EB Garamond', serif;
-  font-size: 1.3rem;
-  font-weight: 500;
-  margin: 2rem 0 1rem;
-  color: #2d3748;
+h2 { 
+  font-size: 14pt; 
+  font-weight: bold; 
+  margin: 1.5em 0 0.5em 0; 
+  text-align: left;
 }
 
-/* Paragraph styles */
-p {
-  margin: 0 0 0.5rem 0;
-  text-indent: 1.5em;
-}
-
-.first-paragraph {
-  text-indent: 0;
-  margin-top: 0;
-}
-
-.first-paragraph::first-letter {
-  font-size: 3.5em;
-  font-weight: 500;
-  line-height: 0.8;
-  float: left;
-  margin: 0.1em 0.1em 0 0;
-  color: #1a202c;
-}
-
-/* Quote styles */
-.quote, blockquote {
+h3 { 
+  font-size: 12pt; 
+  font-weight: bold; 
+  margin: 1em 0 0.5em 0; 
   font-style: italic;
-  margin: 1.5rem 2rem;
-  padding-left: 1rem;
-  border-left: 3px solid #cbd5e0;
-  color: #4a5568;
 }
 
-/* List styles */
-ul, ol {
-  margin: 1rem 0;
-  padding-left: 2rem;
+/* Paragraph formatting */
+p { 
+  margin: 0 0 0.5em 0; 
+  text-indent: 1.5em; 
+}
+
+/* First paragraphs after headings don't indent */
+p:first-child, 
+h1 + p, 
+h2 + p, 
+h3 + p,
+.first-paragraph { 
+  text-indent: 0; 
+}
+
+/* Block quotes */
+blockquote { 
+  margin: 1em 2em; 
+  font-style: italic; 
+  border-left: 3px solid #ccc; 
+  padding-left: 1em; 
+  text-indent: 0;
+}
+
+/* Lists */
+ul, ol { 
+  margin: 1em 0; 
+  padding-left: 2em; 
 }
 
 li {
-  margin: 0.5rem 0;
+  margin: 0.3em 0;
+  text-indent: 0;
 }
 
-/* Page break styles */
+/* Emphasis */
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+/* Page breaks for print */
 .page-break {
   page-break-before: always;
 }
 
+/* Scene breaks */
+hr {
+  border: none;
+  text-align: center;
+  margin: 2em 0;
+}
+
+hr:after {
+  content: "* * *";
+  font-size: 14pt;
+  letter-spacing: 0.5em;
+}
+
+/* Drop caps (first letter styling) */
+.drop-cap:first-letter {
+  float: left;
+  font-size: 3em;
+  line-height: 0.8;
+  margin: 0.1em 0.1em 0 0;
+  font-weight: bold;
+}
+
 /* Print-specific styles */
 @media print {
-  @page {
-    size: 6in 9in;
-    margin: 0.75in 0.625in 0.75in 0.875in;
-  }
-  
   body {
-    font-size: 11pt;
+    margin: 0;
+    padding: 0;
   }
   
-  .page-break::before {
-    display: none;
+  h1 {
+    page-break-before: always;
+    page-break-after: avoid;
+  }
+  
+  h2, h3 {
+    page-break-after: avoid;
+  }
+  
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+  
+  .page-break {
+    page-break-before: always;
   }
 } 
